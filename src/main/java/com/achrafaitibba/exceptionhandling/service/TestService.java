@@ -12,7 +12,6 @@ public class TestService {
 
     public String testException_(String name){
         if(!name.equals("test")){
-            System.out.println(getClass().getName());
             throw new RequestException(CustomErrorMessage.USER_NOT_FOUND.getMessage(), HttpStatus.BAD_REQUEST);
         }else {
             return name;

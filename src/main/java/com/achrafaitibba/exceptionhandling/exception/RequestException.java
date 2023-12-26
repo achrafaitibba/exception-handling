@@ -9,7 +9,6 @@ public class RequestException extends RuntimeException{
     public RequestException(String message, HttpStatus httpStatus){
         super(message);
         this.httpStatus = httpStatus;
-        System.out.println(getClass().getName());
     }
 
     public HttpStatus getHttpStatus(){
