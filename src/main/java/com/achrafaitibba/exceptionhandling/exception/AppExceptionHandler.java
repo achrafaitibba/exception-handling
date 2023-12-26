@@ -10,15 +10,17 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 @ControllerAdvice
-public class AccountException extends ResponseEntityExceptionHandler {
+public class AppExceptionHandler extends ResponseEntityExceptionHandler {
+
 
 
     @ExceptionHandler(value = {RequestException.class})
     public ResponseEntity<Object> handleApiRequestException(RequestException e){
+        System.out.println(getClass().getName());
         ApiException apiException = new ApiException(
                 e.getMessage(),
-                e.getHttpStatus().value(),
                 e.getHttpStatus(),
+                e.getHttpStatus().value(),
                 ZonedDateTime.now(ZoneId.of("GMT"))
         );
         return new ResponseEntity<>(apiException, e.getHttpStatus());

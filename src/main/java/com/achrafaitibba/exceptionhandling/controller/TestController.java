@@ -12,17 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class TestController {
     private final TestService testService;
-
+    
     @PostMapping("/{name}")
-    public String test(@PathVariable String name){
-        return testService.testException(name);
-
-    }
-
-    @PostMapping("/a/{name}")
     public String testA(@PathVariable String name){
+        System.out.println(getClass().getName());
         return testService.testException_(name);
-
     }
 
 }
